@@ -1,6 +1,6 @@
 /*
 
-	node-mboxrd demo file
+    node-mboxrd demo file
     Copyright (C) 2011 Ditesh Shashikant Gathani <ditesh@gathani.org>
 
     Permission is hereby granted, free of charge, to any person obtaining a copy of
