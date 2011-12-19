@@ -9,7 +9,7 @@
         "email": "ditesh@gathani.org",
         "url": "http://ditesh.gathani.org/blog/"
     },
-    "dependencies": ["unixlib", "hashlib"]
+    "dependencies": ["unixlib"],
     "repository": { "type" : "git", "url" : "https://github.com/ditesh/node-mboxrd.git" },
     "main": "main.js"
 }

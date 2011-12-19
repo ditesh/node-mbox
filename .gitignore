@@ -1,2 +1,2 @@
 .*.sw?
-.lock-wscript
+node_modules/
