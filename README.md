@@ -1,6 +1,6 @@
-# node-mboxrd
+# node-mbox
 
-node-mboxrd is an evented wrapper around mboxrd files for Node.js. It offers the following capabilities:
+node-mbox is an evented wrapper around mbox files for Node.js. It offers the following capabilities:
 
 * mboxrd support (see http://qmail.org/man/man5/mbox.html for information on mboxrd)
 * read messages

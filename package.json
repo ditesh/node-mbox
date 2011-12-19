@@ -1,8 +1,8 @@
 {
-	"name": "mboxrd",
-    "version": "v0.1.0",
+	"name": "mbox",
+    "version": "v0.1.1",
     "description": "Evented wrapper for mboxrd files",
-    "homepage": "https://github.com/ditesh/node-mboxrd",
+    "homepage": "https://github.com/ditesh/node-mbox",
     "keywords": ["mbox", "mboxrd", "mail", "email"],
     "author": {
         "name": "Ditesh Shashikant Gathani",
@@ -10,6 +10,6 @@
         "url": "http://ditesh.gathani.org/blog/"
     },
     "dependencies": ["unixlib"],
-    "repository": { "type" : "git", "url" : "https://github.com/ditesh/node-mboxrd.git" },
+    "repository": { "type" : "git", "url" : "https://github.com/ditesh/node-mbox.git" },
     "main": "main.js"
 }
