@@ -5,10 +5,15 @@ node-mbox is an evented wrapper around mbox files for Node.js. It offers the fol
 * mboxrd support (see http://qmail.org/man/man5/mbox.html for information on mboxrd)
 * read messages
 * delete messages
+* sync to disk
 
 # Usage
 
 See `demo.js`
+
+# Does this actually work?
+
+Yep. Parsed a 2.2GB mbox file on a slow disk in under a minute with 4KB buffers. It works but it could certainly be faster :)
 
 # License
 

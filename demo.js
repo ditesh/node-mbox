@@ -1,6 +1,6 @@
 /*
 
-   node-mboxrd demo file
+   node-mbox demo file
    Copyright (C) 2011 Ditesh Shashikant Gathani <ditesh@gathani.org>
 
    Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -24,12 +24,12 @@
 */
 
 var fs = require("fs");
-var mboxrd = require("./main.js").mboxrd;
+var mbox = require("./main.js").mbox;
 var filename = "mbox"; // This is slightly sloppy - be sure to have your mboxrd file named mbox in the current directory
 
 var count = 0;
 var fd = fs.openSync(filename, "r+");
-var box = new mboxrd(fd);
+var box = new mbox(fd); // Note that it accepts fd's, and not filenames
 
 box.on("error", function(err) {
 
@@ -45,7 +45,7 @@ box.on("init", function(status, err) {
     if (status) {
 
         count = box.count();
-        console.log("Successfully read mboxrd file ("+count+" messages. Getting messaegs (if any).");
+        console.log("Successfully read mboxrd file ("+count+" messages. Getting messages (if any).");
 
         if (count > 0) box.get(0);
 
@@ -64,11 +64,10 @@ box.on("get", function(status, msgnumber, data) {
 
     if (status === true) {
 
-        console.log("Successfully got msg " + msgnumber + " with data: " + data);
+        console.log("Successfully got msg " + msgnumber);
 
-//        if (msgnumber + 1 < count) box.get(msgnumber+1);
-//        else process.exit(0);
-        box.delete(0);
+        if (msgnumber + 1 < count) box.get(msgnumber+1);
+        else box.delete(0);
 
     } else {
 

@@ -1,6 +1,6 @@
 {
 	"name": "mbox",
-    "version": "v0.1.1",
+    "version": "v0.1.2",
     "description": "Evented wrapper for mboxrd files",
     "homepage": "https://github.com/ditesh/node-mbox",
     "keywords": ["mbox", "mboxrd", "mail", "email"],

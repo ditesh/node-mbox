@@ -1,6 +1,6 @@
 /*
 
-   node-mboxrd library
+   node-mbox library
    Copyright (C) 2011 Ditesh Shashikant Gathani <ditesh@gathani.org>
 
    Permission is hereby granted, free of charge, to any person obtaining a copy of
@@ -28,7 +28,7 @@ var util = require("util");
 var events = require("events"); 
 var unixlib = require("unixlib");
 
-this.mboxrd = function(fd, options) {
+this.mbox = function(fd, options) {
 
     if (options === undefined) options = {};
 
@@ -134,61 +134,6 @@ this.mboxrd = function(fd, options) {
         // We take advantage of implicity JS hashing to avoid O(n) lookups
         messages.deleted[msgnumber] = 1;
         self.emit("delete", true, msgnumber);
-
-    };
-
-    this.top = function(msgnumber) {
-
-        var self = this;
-
-        if (options.init === false) {
-
-            self.emit("error", "Specified mboxrd has not been fully parsed yet or there was an error parsing it (trap 'init' event for more details)");
-            return false;
-
-        }
-
-        if (msgnumber > omessages.count || messages.deleted[msgnumber] !== undefined) { 
-
-            self.emit("top", false, msgnumber);
-            return false;
-
-        }
-
-        var i = 0;
-        var lines = 0;
-        var bodyend = 0;
-        var headersearch = true;
-        var message = this.get(msgnumber);
-
-        while (i < message.length) {
-
-            if (headersearch === true && message[i] === "\n" && message[i+1] === "\n") {
-
-                bodyend = i;
-                headersearch = false;
-
-            } else if (headersearch === false && lines >= linesreq) {
-
-                break;
-
-            } else if (headersearch === false && message[i] === "\n") {
-
-                lines++;
-
-                if (lines >= linesreq) {
-
-                    bodyend = i;
-                    break;
-
-                }
-            }
-
-            i += 1;
-
-        }
-
-        self.emit("top", true, msgnumber, message.slice(0, bodyend));
 
     };
 
@@ -344,4 +289,4 @@ this.mboxrd = function(fd, options) {
 
 };
 
-util.inherits(this.mboxrd, events.EventEmitter);
+util.inherits(this.mbox, events.EventEmitter);
